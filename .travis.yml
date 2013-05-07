@@ -9,13 +9,13 @@ env:
 #  database: project_test
 #  username: postgres
 before_script:
-  - "psql -c 'CREATE ROLE postgres;'"
-  - "psql -c 'create database travis_test_test;' -U postgres"
+  #- "psql -c 'CREATE ROLE postgres;'"
+  #- "psql -c 'create database travis_test_test;' -U postgres"
   - "rake db:create:all"
   - "rake db:migrate"
 #  - psql -c 'create database travis;'
 #  - psql -c 'create database project_test;'
 script:
-  - "bundle exec rake db:drop db:create db:migrate db:test:prepare"
+  - "bundle exec rake db:test:prepare"
   - "rake"
 
